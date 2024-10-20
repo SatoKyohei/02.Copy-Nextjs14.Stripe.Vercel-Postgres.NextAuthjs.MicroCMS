@@ -1,23 +1,57 @@
 "use client";
 
-import { BookType } from "@/app/types/types";
+import { BookType, User } from "@/app/types/types";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+
 type BookProps = {
     book: BookType;
+    isPurchased: boolean;
 };
 
 // eslint-disable-next-line react/display-name
-const Book = ({ book }: BookProps) => {
+const Book = ({ book, isPurchased }: BookProps) => {
     const [showModal, setShowModal] = useState(false);
     const { data: session } = useSession();
-    const user = session?.user;
-    const router = useRouter()
+    const user = session?.user as User;
+    const router = useRouter();
+
+    const startCheckout = async () => {
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        title: book.title,
+                        price: book.price,
+                        userId: user?.id,
+                        bookId: book.id,
+                    }),
+                }
+            );
+
+            const responseData = await response.json();
+
+            if (responseData) {
+                router.push(responseData.checkout_url);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const handlePurchaseClick = () => {
-        setShowModal(true);
+        if (isPurchased) {
+            alert("その商品は購入済みです。");
+        } else {
+            setShowModal(true);
+        }
     };
 
     const handleCancel = () => {
@@ -25,12 +59,13 @@ const Book = ({ book }: BookProps) => {
     };
 
     const handlePurchaseConfirm = () => {
-        if(!user){
-            setShowModal(false)
+        if (!user) {
+            setShowModal(false);
             // ログインページへリダイレクト
-            router.push("/login")
-        }else{
+            router.push("/login");
+        } else {
             // stripeで決済する
+            startCheckout();
         }
     };
 
