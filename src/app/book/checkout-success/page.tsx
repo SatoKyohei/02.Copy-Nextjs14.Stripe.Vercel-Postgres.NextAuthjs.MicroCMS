@@ -14,7 +14,6 @@ const PurchaseSuccess = () => {
         const fetchData = async () => {
             if (sessionId) {
                 try {
-                    console.log(sessionId);
                     const res = await fetch(
                         `${process.env.NEXT_PUBLIC_API_URL}/checkout/success`,
                         {
@@ -33,7 +32,7 @@ const PurchaseSuccess = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [sessionId]);
 
     return (
         <div className="flex items-center justify-center mt-20">
