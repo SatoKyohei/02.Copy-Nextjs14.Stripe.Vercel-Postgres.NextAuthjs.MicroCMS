@@ -6,7 +6,7 @@ import { NextAuthProvider } from "@/app/lib/next-auth/provider";
 
 
 // 変数定義とエクスポート
-const notoSansJP = Noto_Sans_JP({
+export const notoSansJP = Noto_Sans_JP({
     subsets: ["latin"],
     variable: "--font-noto-sans-jp",
 });
