@@ -17,6 +17,17 @@ https://www.udemy.com/course/book-commerce-web-dev-with-nextjs/learn/lecture/412
 <br/>
 <br/>
 
+## 実行したコマンド（順不同）
+- npm i next-auth
+- npm i @next-auth/prisma-adapter
+- npm i -g vercel
+- npm i @prisma/client
+- npm i @vercel/postgres
+- npm i microcms-js-sdk
+- npx prisma init
+- npx prisma migrate dev --name init
+- npx prisma migrate dev
+
 ## 学べる点
 - 
 

@@ -1,10 +1,13 @@
 "use client";
 
+import { BookType } from "@/app/types/types";
 import Image from "next/image";
-import Link from "next/link";
+type BookProps = {
+    book: BookType
+}
 
 // eslint-disable-next-line react/display-name
-const Book = ({ book }: any) => {
+const Book = ({ book }: BookProps) => {
     return (
         <>
             {/* アニメーションスタイル */}
@@ -28,7 +31,7 @@ const Book = ({ book }: any) => {
                 <a className="cursor-pointer shadow-2xl duration-300 hover:translate-y-1 hover:shadow-none">
                     <Image
                         priority
-                        src={book.thumbnail}
+                        src={book.thumbnail.url}
                         alt={book.title}
                         width={450}
                         height={350}
@@ -40,7 +43,7 @@ const Book = ({ book }: any) => {
                             この本は○○...
                         </p>
                         <p className="mt-2 text-md text-slate-700">
-                            値段：{book.price}円
+                            値段：{book.price }円
                         </p>
                     </div>
                 </a>

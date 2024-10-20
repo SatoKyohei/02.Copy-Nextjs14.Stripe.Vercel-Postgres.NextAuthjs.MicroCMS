@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Noto_Sans_JP } from "next/font/google";
 import Header from "@/app/components/Header";
+import { NextAuthProvider } from "@/app/lib/next-auth/provider";
+
 
 // 変数定義とエクスポート
 export const notoSansJP = Noto_Sans_JP({
@@ -24,8 +26,10 @@ export default function RootLayout({
         <html lang="ja">
             {/* フォント名.classNameで反映 */}
             <body className={notoSansJP.className}>
-                <Header />
-                {children}
+                <NextAuthProvider>
+                    <Header />
+                    {children}
+                </NextAuthProvider>
             </body>
         </html>
     );
