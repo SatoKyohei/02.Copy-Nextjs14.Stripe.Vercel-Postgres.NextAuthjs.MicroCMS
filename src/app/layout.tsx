@@ -3,10 +3,11 @@ import "./globals.css";
 import { Noto_Sans_JP } from "next/font/google";
 import Header from "@/app/components/Header";
 import { NextAuthProvider } from "@/app/lib/next-auth/provider";
+import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 
 // 変数定義とエクスポート
-export const notoSansJP = Noto_Sans_JP({
+export const notoSansJP: NextFontWithVariable = Noto_Sans_JP({
     subsets: ["latin"],
     variable: "--font-noto-sans-jp",
 });
