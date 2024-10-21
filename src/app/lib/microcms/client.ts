@@ -12,7 +12,9 @@ export const getAllBooks = async () => {
     const allBooks = await client.getList<BookType>({
         endpoint: "bookcommerce", // 値はmicroCMSで確認可能
         customRequestInit: {
-            cache: "no-store",
+            next: {
+                revalidate: 3600,
+            },
         },
     });
 
