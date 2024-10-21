@@ -28,6 +28,7 @@ https://www.udemy.com/course/book-commerce-web-dev-with-nextjs/learn/lecture/412
 - npx prisma migrate dev --name init
 - npx prisma migrate dev
 - npm i stripe
+- npm i react-spinners
 
 ## 学べる点
 - 

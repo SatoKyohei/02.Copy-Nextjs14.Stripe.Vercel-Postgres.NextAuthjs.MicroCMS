@@ -19,6 +19,7 @@
         "prisma": "^5.21.1",
         "react": "^18",
         "react-dom": "^18",
+        "react-spinners": "^0.14.1",
         "stripe": "^17.2.1"
     },
     "devDependencies": {

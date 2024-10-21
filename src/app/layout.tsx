@@ -3,7 +3,8 @@ import "./globals.css";
 import { Noto_Sans_JP } from "next/font/google";
 import Header from "@/app/components/Header";
 import { NextAuthProvider } from "@/app/lib/next-auth/provider";
-
+import { Suspense } from "react";
+import LoadingSpinner from "@/app/loading";
 
 // 変数定義とエクスポート
 const notoSansJP = Noto_Sans_JP({
@@ -28,7 +29,7 @@ export default function RootLayout({
             <body className={notoSansJP.className}>
                 <NextAuthProvider>
                     <Header />
-                    {children}
+                    <Suspense fallback={<LoadingSpinner/>}>{children}</Suspense>
                 </NextAuthProvider>
             </body>
         </html>
