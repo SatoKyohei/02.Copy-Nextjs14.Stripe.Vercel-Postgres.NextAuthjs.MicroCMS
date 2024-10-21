@@ -8,7 +8,7 @@ import { getServerSession } from "next-auth";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function Home() {
-    const { contents } = await getAllBooks();
+    const { contents } = await getAllBooks(); // ISR
     const session = await getServerSession(nextAuthOptions);
     const user = session?.user as User;
 
