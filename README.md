@@ -29,6 +29,7 @@ https://www.udemy.com/course/book-commerce-web-dev-with-nextjs/learn/lecture/412
 - npx prisma migrate dev
 - npm i stripe
 - npm i react-spinners
+- openssl rand -base64 32
 
 ## 学べる点
 - 
