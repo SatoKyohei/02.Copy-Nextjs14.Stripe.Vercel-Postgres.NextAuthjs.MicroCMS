@@ -33,6 +33,7 @@ https://www.udemy.com/course/book-commerce-web-dev-with-nextjs/learn/lecture/412
 
 ## 学べる点
 - Next-Auth
+  - Githubアカウントによるログイン
 - Vercel PostgreSQLの設定
 - Vercel と Next.jsの環境変数紐付け
 - microCMSのWebhook設定
@@ -55,3 +56,4 @@ https://www.udemy.com/course/book-commerce-web-dev-with-nextjs/learn/lecture/412
 ## 他
 - 初学者の時に取り組んだ教材なのでかなり有益な内容だったが、動画中ではanyを多用したりエラー修正に動画何本も費やしていたからか、わりとバグが多く残っている。非常に参考にはなるが、本番にそのまま実装するのは考え直した方が良い。
 - 講義中ではリファクタリングはあまりしてないので、自分でやるしかない
+- バグが残ったままvercelにデプロイしている。おそらく認証周り
